@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Persona{
+            static contadorPersona=0;
+            constructor(nombre,apellido,edad){
+                this._nombre=nombre;
+                this._apellido=apellido;
+                this._edad=edad;
+                this._id=++Persona.contadorPersona;
+
+            }
+            get nombre(){
+                return this._nombre;
+            }
+            set nombre(nombre){
+                this._nombre=nombre;
+
+            }
+            get apellido(){
+                return this._apellido;
+            }
+            set apellido(apellido){
+                this._apellido=apellido;
+            }
+            get edad(){
+                return this._edad;
+            }
+            set edad(edad){
+                this._edad=edad
+            }
+            get id(){
+                return this._id;
+            }
+           
+            toString(){
+            return `idPersona: ${this._id}  
+                               ${this._nombre} ${this._apellido}`; //otra forma de concatenar cadenas
+            }
+        }
+        class Empleado extends Persona{
+            
+            constructor(nombre,apellido,edad,sueldo){
+            super(nombre,apellido,edad)
+                this._sueldo=sueldo;
+             
+            }
+            get sueldo(){
+                return this._sueldo;
+            }
+            set sueldo(sueldo){
+                this._sueldo=sueldo;
+            }
+        
+            toString(){
+                return `${super.toString()} 
+                               su sueldo es: ${this._sueldo}`;
+                
+            }
+        }
+        class Cliente extends Persona{
+            constructor(nombre,apellido,edad,fechaRegistro){
+            super(nombre,apellido,edad)
+                this._fechaRegistro=fechaRegistro;  
+            }
+            get fechaRegistro(){
+                return this._fechaRegistro;
+            }
+            set FechaRegistro(fechaRegistro){
+                this._fechaRegistro=fechaRegistro;
+            }
+           
+            toString(){
+                return `${super.toString()} 
+                               Fecha de registro: ${this._fechaRegistro}`;
+                
+            }
+        }
+        let persona1=new Persona("juan","jimenez","20");
+        console.log(persona1.toString());
+        let empleado1=new Empleado("jeison","jimenez","20",100.00,);
+        console.log(empleado1.toString());
+        let cliente1=new Cliente("leslie","jimenez","22",new Date());
+        console.log(cliente1.toString());
+    </script>
+</body>
+</html>

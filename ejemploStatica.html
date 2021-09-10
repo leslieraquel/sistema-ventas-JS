@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Persona{
+            static contadorObjetos=0;
+            constructor(nombre,apellido){
+                this._nombre=nombre;
+                this._apellido=apellido;
+                this.id= ++Persona.contadorObjetos;
+
+            }
+            get nombre(){
+                return this._nombre;
+            }
+            set nombre(nombre){
+                this._nombre=nombre
+            }
+            get apellido(){
+                return this._apellido;
+            }
+            set apellido(apellido){
+                this._apellido=apellido;
+            }
+            nombreCompleto(){
+                return "id: "+this.id+" "+this._nombre+" "+this._apellido;
+            } 
+        }
+
+        class Empleado extends Persona{
+            constructor(nombre,apellido,categoria){
+                super(nombre,apellido);
+                this._categoria=categoria;
+            }
+            
+        get categoria(){
+            return this._categoria;
+        }
+        set categoria(categoria){
+            this._categoria=categoria;
+        }
+        nombreCompleto(){
+            return super.nombreCompleto()+" "+this._categoria;
+        }
+        
+            
+        }
+        let persona1=new Persona("leslie","guaman");
+        console.log(persona1.nombreCompleto());
+        let empledado1=new Empleado("jeison","caguana","developer");
+        console.log(empledado1.nombreCompleto());
+
+    </script>
+</body>
+</html>

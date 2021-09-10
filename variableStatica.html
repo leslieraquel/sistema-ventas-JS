@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Persona{
+            static contadorPersona=0; //atributo estatico para utilizarlo debe ser llamdo desde la clase
+            static get objeto_max(){
+                return 10;
+            }
+            constructor(nombre,apellido){
+                this._nombre=nombre;
+                this._apellido=apellido;
+                if(Persona.contadorPersona<Persona.objeto_max){
+                    this.id=++Persona.contadorPersona;
+                }else{
+                    console.log("Ha llegado al limite de objetos");
+                }
+                
+            }
+
+            get nombre(){
+                return this._nombre;
+            }
+            set nombre(nombre){
+                this._nombre=nombre;
+            }
+            get apellido(){
+                return this._apellido;
+            }
+
+            set apellido(apellido){
+                this._apellido=apellido;
+            }
+            nombreCompleto(){
+                return "id: "+this.id+" "+this.nombre+" "+this.apellido;
+            }
+            toString(){
+                return this.nombreCompleto();
+            }
+        }   
+        
+        let persona1=new Persona("leslie","guaman");
+        console.log(persona1.nombreCompleto());
+        let persona2=new Persona("leslie","guaman");
+        console.log(persona2.nombreCompleto());
+        let persona3=new Persona("leslie","guaman");
+        console.log(persona3.nombreCompleto());
+        let persona4=new Persona("leslie","guaman");
+        console.log(persona4.nombreCompleto());
+        let persona5=new Persona("leslie","guaman");
+        console.log(persona5.nombreCompleto());
+        let persona6=new Persona("leslie","guaman");
+        console.log(persona6.nombreCompleto());
+        let persona7=new Persona("leslie","guaman");
+        console.log(persona7.nombreCompleto());
+        let persona8=new Persona("leslie","guaman");
+        console.log(persona8.nombreCompleto());
+        let persona9=new Persona("leslie","guaman");
+        console.log(persona9.nombreCompleto());
+        let persona10=new Persona("leslie","guaman");
+        console.log(persona10.nombreCompleto());
+
+        let persona11=new Persona("leslie","guaman");
+        
+    </script>
+</body>
+</html>

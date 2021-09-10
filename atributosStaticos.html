@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Persona{
+            static contadorObjetosPersona=0;//es un atributo de la clase 
+            email="valor default email";//es un atributo de los objetos
+            constructor(nombre,apellido){
+                this._nombre=nombre;
+                this._apellido=apellido;
+                Persona.contadorObjetosPersona++; //esto significa que cada vez que se cree un objeto se incrmentara en uno
+
+            }
+        get nombre(){
+            return this._nombre;
+        }
+        set nombre(nombre){
+            this._nombre=nombre;
+        }
+        get apellido(){
+            return this._apellido;
+        }
+        set apellido(apellido){
+            this._apellido=apellido;
+        }
+        nombreCompleto(){
+            return "id:"+Persona.contadorObjetosPersona+" "+this._nombre+" "+this._apellido;
+        }
+        
+        }
+        class Empleado extends Persona{
+            constructor(nombre,apellido,categoria){
+            super(nombre,apellido);
+            this._categoria=categoria;
+           }
+        get categoria(){
+            return this._departamento;
+        }
+        set categoria(categoria){
+            this._categoria=categoria;
+        }
+        nombreCompleto(){
+          return super.nombreCompleto()+" "+this._categoria;
+        }
+        }
+        let persona1= new Persona("leslie","guaman");
+        console.log(persona1.nombreCompleto());
+
+        let persona2=new Persona("jeison","caguana");
+        console.log(persona2.nombreCompleto());
+
+        let empledado1=new Empleado("katina","cruz","odontologia");
+        console.log(empledado1.nombreCompleto());
+
+        console.log(persona1.email);//se obtiene con un objeto y vemos que se esta heredando
+        console.log(Persona.email);//sale undefine ya que es un atributo que se esta recien creando 
+        //en la clase persona por eso lo pasa como undefine(recien se esta asociando)
+        
+
+    </script>
+</body>
+</html>

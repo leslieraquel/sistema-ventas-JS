@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Object.prototype.toString;
+      class Persona{
+          constructor(nombre,apellido,edad){
+              this._nombre=nombre;
+              this._apellido=apellido;
+              this._edad=edad
+        }
+        get nombre(){
+         return this._nombre;
+        }
+        set nombre(nombre){
+            this._nombre=nombre;
+        }
+        get apellido(){
+            return this._apellido;
+        }
+        set apellido(apellido){
+            this._apellido=apellido;
+        }
+        get edad(){
+            return this._edad;
+        }
+        set edad(edad){
+            this._edad=edad;
+        }
+        nombreCompleto(){
+            return this._nombre+" "+this._apellido;
+
+        }
+        toString(){
+            return this.nombreCompleto();
+            //se aplica polimorfismo(multiples formas en tiempo de ejecucion)
+            //el metodo se ejecuta dpende si es de una refrencia de tipo padre
+            //o de tipo hijo
+            
+        }
+        static saludar(){
+            console.log("hola mundo con metodo static");
+        }
+        static saludar2(persona){
+            console.log("hola, "+persona.nombre+" "+"bienvenid@");
+
+        }
+      }
+
+      class Empledado extends Persona{
+        constructor(nombre,apellido,edad,departamento){
+        super(nombre,apellido,edad);
+        this._departamento=departamento;
+
+        }
+        get departamento(){
+            return this._departamento;
+        }
+        set departamento(departamento){
+            this._departamento=departamento;
+        }
+        //sobrescritura
+        nombreCompleto(){
+          return super.nombreCompleto()+" "+this._departamento;
+        }
+      }
+      let persona1 = new Persona("leslie","guaman","22");
+
+      let empledado1 = new Empledado("juan","guaman","22","sistemas");
+      
+      console.log(empledado1.nombreCompleto());
+
+      console.log(empledado1.toString());
+
+     persona1.saludar();//el metodo estatico no se puede utilizar desde un objeto
+                     //sino que se debe utilizar desde la misma clase
+    console.log(Persona.saludar());
+
+     console.log(Persona.saludar2(persona1));
+
+      console.log(Empledado.saludar());
+
+     console.log(Empledado.saludar2(empledado1));
+
+    </script>
+</body>
+</html>

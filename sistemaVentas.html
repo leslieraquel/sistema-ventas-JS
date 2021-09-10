@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Producto{
+            static contadorProducto=0;
+            constructor(nombre,precio){
+                this._nombre=nombre;
+                this._precio=precio;
+                this._idProducto=++Producto.contadorProducto;
+            }
+            get nombre(){
+                return this._nombre;
+            }
+            set nombre(nombre){
+                this._nombre;
+            }
+            get precio(){
+                return this._precio;
+            }
+            set precio(precio){
+                this._precio;
+            }
+            get idProducto(){
+                return this._idProducto;
+            }
+            toString(){
+                return `${this._idProducto} ${this._nombre} ${this._precio}`;
+            }
+        }
+        class Orden extends Producto{
+            constructor()
+
+        }
+
+    
+    </script>
+</body>
+</html>
