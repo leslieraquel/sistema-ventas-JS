@@ -31,14 +31,68 @@
                 return this._idProducto;
             }
             toString(){
-                return `${this._idProducto} ${this._nombre} ${this._precio}`;
+                return `{idProducto:${this._idProducto}, nombre:${this._nombre}, precio:${this._precio}} \n`;
             }
         }
-        class Orden extends Producto{
-            constructor()
+        //tiene una relacion de agregacion con la clase producto ya que una orden puede tener varios productos
+        class Orden{
+            static contadorOrden=0;
+            //metodo de maximo pruductos
+            static get MAX_PRODUCTOS(){
+                return 5;
+            }
+        //relacion de agregacion
+        constructor(){
+            this._idOrden = ++Orden.contadorOrden;
+            this._productos = []; //arreglo vacio
+            this.contadorProductosAgregados=0;
+
+
+        }
+        //metodo get
+         get idOrden(){
+             return this._idOrden
+         }
+         agregarProducto(producto){
+             if (this._productos.length < Orden.MAX_PRODUCTOS){
+                    this._productos.push(producto); //agregadno un nuevo producto
+             }else{
+                console.log("No se puede agregar mas productos");
+             }
+
+         }
+         
+         calcularTotal(){
+                let totalVenta=0
+                for(let producto of this._productos){ //cliclo for simplificado //iterando arreglo
+                    totalVenta = totalVenta + producto.precio
+                }
+                return totalVenta;
+         }
+
+         mostrarOrden(){
+             let productosOrden='';
+            for(let producto of this._productos){
+                productosOrden = productosOrden + producto.toString();
+            }
+            console.log(`Orden: ${this._idOrden} Total: ${this.calcularTotal()}, Productos: \n${productosOrden}`);
+         }
 
         }
 
+
+        let producto1=new Producto("chupete",10.00);
+        let producto2=new Producto("chupetes",10.00);
+        let producto3=new Producto("chupete2",10.00);
+        let producto4=new Producto("chupete2",10.00);
+        let orden1 = new Orden();
+        orden1.agregarProducto(producto1);
+        orden1.agregarProducto(producto2);
+        orden1.agregarProducto(producto3);
+        orden1.agregarProducto(producto4);
+        orden1.mostrarOrden();
+
+        
     
     </script>
 </body>
