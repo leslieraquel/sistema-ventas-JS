@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*"use strict" /*sirve para poner en modo stricto al codigo
+                        para evotar usar variables que no se han declarado tambien 
+                        se puede utilizar dentro de una funcion*/
+
+       let x=20; //debe de marcar error por que no esta declarada 
+       console.log(x);
+
+       //utlizando dentro de una funcion
+       const mifuncion = () => {
+            "use strict"
+            let y = 10;
+            return y;
+        }
+        console.log(mifuncion());
+    </script>
+</body>
+</html>

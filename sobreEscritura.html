@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*Con la cobrescrtura de los metodos se puede heredar de la clase hija a la clase padre*/
+        class Empleado{
+            constructor(nombre, sueldo){
+                this._nombre = nombre;
+                this._sueldo = sueldo;
+            }
+        //metodos getters y setters
+        get nombre(){
+            return this._nombre;
+        }
+        set nombre(nombre){
+            this._nombre = nombre;
+        }
+        get sueldo(){
+            return this._sueldo;
+        }
+        set sueldo(sueldo){
+            this._sueldo = sueldo;
+
+        }
+        //creando metodo 
+        obtenerDatos(){
+
+            return `Empleado: ${this._nombre}, Sueldo: ${this._sueldo}`;
+        }
+    }
+
+    class Gerente extends Empleado{
+        constructor(nombre, sueldo, departamento){
+            super(nombre, sueldo);
+            this._departamento = departamento;
+        }
+        get departamento(){
+            return this._departamento;
+        }
+        set departamento(departamento){
+            this._departamento = departamento;
+        }
+
+        //se aplica sobreescritura para poder heredar 
+    obtenerDatos(){
+        return `Gerente: ${super.obtenerDatos()}, Departamento: ${this._departamento}`;
+
+    }
+}
+//polimorfismo que significa multiples formas 
+//se esta llamando a la funcion segun el tipo que se ingrese
+const imprimir = (tipo) => {
+    console.log(tipo.obtenerDatos());
+
+}
+
+let gerente1 = new Gerente('leslie',100,'sistemas');
+let empleado1 = new Empleado('leslie',100);
+
+//imprimir(gerente1);
+//imprimir(empleado1);
+
+//instaceof: es para saber con que tipo se esta trabajando 
+const determinarTipo = (tipo) => {
+    console.log(tipo.obtenerDatos())
+    if(tipo instanceof Gerente){ /*se esta preguntando si la variable que se esta recibiendo es una clase de Empleado*/
+        console.log("Es un objeto de la clase Gerente");
+    }else if(tipo instanceof Empleado){
+        console.log("Es un objeto de la clase Empleado");
+
+    }
+}
+
+determinarTipo(gerente1);
+
+determinarTipo(empleado1);
+//console.log(determinarTipo(gerente1));
+
+//console.log(gerente1 instanceof Empleado);
+
+
+</script>
+</body>
+</html>
