@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       "use strict";
+       //try cacht: es para controlar errores
+        try {
+            x=10 //en este bloque va las sentencias a ejecutarse
+        } catch (error) {
+            console.log(error) //devuelve el error
+        }
+        finally{ //siempre se ejecutara finalizando la ejecucion del try
+            console.log("termina la revision de errores");
+        }
+
+        console.log("continuamos");
+
+        //otro ejemplo
+        try {
+            let y=10; //cuando no detecta ningun error en el cacth ya no salta ningun error 
+            
+        } catch (error) {
+            console.log(error)
+        }
+        finally{
+            console.log("terminando errores")
+        }
+
+
+    </script>
+
+</body>
+</html>
