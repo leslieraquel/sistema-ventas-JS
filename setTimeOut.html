@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function funcionCall(){
+            console.log("Hola despues de 3 seg");
+        }
+        //funcion setTimeOut
+        setTimeout(funcionCall, 3000); //se realizo la funcion posteriormente y despues se llama 
+
+        setTimeout(() => { console.log("Hola despues de 5 seg")}, 6000); //se esta haciendo una funcion directamente en settimeout
+        
+    </script>
+</body>
+</html>

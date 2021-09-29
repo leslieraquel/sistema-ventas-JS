@@ -8,15 +8,14 @@
 </head>
 <body>
     <script>
-        let resultado=5;
-        
-        //throw:sirve para arrojar una nueva ecepcion
-        try {
-            if(resultado>=0)throw "es un numero positivo";
-                else if(resultado<0) throw "es un numero negativo";
-        } catch (error) {
-            console.log(error);
+        const FuncionFecha = () => {
+            let fecha = new Date();
+
+            console.log(`${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()}`);
         }
+
+        setInterval(FuncionFecha,1000); //cada un seg se ejecutara la funcion de fecha
+
     </script>
 </body>
 </html>

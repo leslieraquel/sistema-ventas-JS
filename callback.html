@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //callback  es una funcion qeu se oasa como parametro a otra funcion y dentro de una fucnion
+        //se puede llamar a ora funcion
+
+        const funcionCall = () =>{
+            console.log("hola");
+        }
+        const funcion2 = ()=> {
+            console.log("esta es la funcion 2");
+        }
+
+        funcionCall();
+        funcion2();
+        //dentro de una funcion se llamara otra funcion aplicando callback
+        //funcion callBack
+
+        const imprimir = (mensaje) => {
+            console.log(mensaje);
+        }
+
+        const suma = (num1,num2,FuncionCallback) => {
+            let respuesta = num1 + num2;
+            FuncionCallback(`Resultado:${respuesta}`); 
+
+        }
+        suma(8,9,imprimir);
+
+    </script>
+</body>
+</html>
