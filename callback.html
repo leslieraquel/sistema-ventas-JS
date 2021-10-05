@@ -20,18 +20,19 @@
 
         funcionCall();
         funcion2();
+        
         //dentro de una funcion se llamara otra funcion aplicando callback
         //funcion callBack
-
         const imprimir = (mensaje) => {
             console.log(mensaje);
         }
 
-        const suma = (num1,num2,FuncionCallback) => {
+        const suma = (num1,num2,imprimir) => {
             let respuesta = num1 + num2;
-            FuncionCallback(`Resultado:${respuesta}`); 
+            imprimir(`Resultado:${respuesta}`); 
 
         }
+        //aplicando una funcion tipo callback
         suma(8,9,imprimir);
 
     </script>

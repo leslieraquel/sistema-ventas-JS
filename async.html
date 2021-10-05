@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //async sirve para simplificar la llamada a las promesas
+        //async define que una funcion va a regresar una promesa
+        async function miFuncionPromesa(){
+            return 'Hola a todos desde async' //es lo mismo a igual que se le ponga resolved
+        }
+        miFuncionPromesa().then(valor => console.log(valor)); //llamado a la promesa de la funcion por que esta con async
+        
+
+        
+    </script>
+</body>
+</html>
